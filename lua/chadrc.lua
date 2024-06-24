@@ -5,8 +5,8 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.base46 = {
-	theme = "onedark",
+M.ui = {
+	theme = "github_dark",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
