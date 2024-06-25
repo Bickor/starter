@@ -49,4 +49,13 @@ return {
       require("dap-go").setup(opts)
     end
   },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   opts = function()
+  --   end
+  -- }
 }
