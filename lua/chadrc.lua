@@ -13,4 +13,6 @@ M.ui = {
 	-- },
 }
 
+local custom_init = require("custom.init")
+
 return M
