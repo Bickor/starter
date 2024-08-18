@@ -62,3 +62,6 @@ unmap("n", "<leader>e")
 
 map("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Open/Close the nvim tree" })
 map("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Focus on the nvim tree" })
+
+-- errors
+map("n", "<leader>rd", "<cmd> lua vim.diagnostic.open_float()<CR>", { desc = "Toggle diagnostic in cursor position" })
