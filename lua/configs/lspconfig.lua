@@ -5,7 +5,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local util = require "lspconfig/util"
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "gopls" }
+local servers = { "html", "cssls", "gopls", "rust_analyzer", "pyright" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -41,7 +41,7 @@ lspconfig.gopls.setup {
   },
 }
 
--- autoformats on write
+-- autoformats on write for go
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()

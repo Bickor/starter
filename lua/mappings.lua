@@ -65,3 +65,16 @@ map("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Focus on the nvim tre
 
 -- errors
 map("n", "<leader>rd", "<cmd> lua vim.diagnostic.open_float()<CR>", { desc = "Toggle diagnostic in cursor position" })
+
+-- Copilot Suggestion Acceptance Key
+map("i", "<C-l>", function ()
+  vim.fn.feedkeys(vim.fn['copilot#Accept'](), "")
+end, { desc = "Copilot Accept", noremap = true, silent = true})
+
+-- Copilot Chat
+map("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", { desc = "Toggle Copilot Chat" })
+map("n", "<leader>co", "<cmd>CopilotChatOpen<CR>", { desc = "Open Copilot Chat" })
+map("n", "<leader>cq", "<cmd>CopilotChatClose<CR>", { desc = "Close Copilot Chat" })
+map("v", "<leader>ce", ":CopilotChatExplain<CR>", { desc = "Explain selection with Copilot Chat" })
+map("v", "<leader>cf", ":CopilotChatFix<CR>", { desc = "Fix selection with Copilot Chat" })
+

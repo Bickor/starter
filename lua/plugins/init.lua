@@ -53,6 +53,28 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+  -- Enable Copilot, followed: http://www.infotinks.com/setting-up-neovim-nvchad-lsp-and-github-copilot-on-mac-or-linux/
+  {
+    "github/copilot.vim",
+    lazy = false,
+    config = function ()
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_assume_mapped = true
+    end
+  },
+  -- Enable Copilot Chat, https://github.com/CopilotC-Nvim/CopilotChat.nvim
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      "github/copilot.vim", -- or zbirenbaum/copilot.lua
+      "nvim-lua/plenary.nvim", -- for curl, log and async functions
+    },
+    lazy = false,
+    build = "make tiktoken", -- Only on MacOS or Linux
+    opts = {
+      -- See Configuration section for options.
+    },
+  },
   -- {
   --   "nvim-tree/nvim-tree.lua",
   --   opts = function()
