@@ -1,32 +1,21 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+-- This loads on_attach, on_init, and capabilities from NvChad
+require("nvchad.configs.lspconfig").defaults()
+
 local util = require "lspconfig/util"
 
-local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "gopls", "rust_analyzer", "pyright" }
+-- Enable servers with default configuration
+vim.lsp.enable({
+  "html",
+  "cssls",
+  "gopls",
+  "rust_analyzer",
+  "pyright",
+  "ts_ls",
+})
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
-
--- typescript
-lspconfig.ts_ls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-}
-
--- gopls
-lspconfig.gopls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {"gopls"},
+-- Custom server overrides
+vim.lsp.config["gopls"] = {
+  cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
@@ -35,9 +24,14 @@ lspconfig.gopls.setup {
       usePlaceholders = true,
       analyses = {
         unusedparams = true,
-      }
+      },
     },
   },
+}
+
+-- optional custom config for ts_ls example
+vim.lsp.config["ts_ls"] = {
+  -- customize only if needed
 }
 
 -- autoformats on write for go
