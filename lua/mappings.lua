@@ -66,6 +66,13 @@ map("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", { desc = "Focus on the nvim tre
 -- errors
 map("n", "<leader>rd", "<cmd> lua vim.diagnostic.open_float()<CR>", { desc = "Toggle diagnostic in cursor position" })
 
+-- LSP navigation
+map("n", "<C-]>", vim.lsp.buf.definition, { desc = "Go to definition" })
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+map("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
+
 -- Copilot Suggestion Acceptance Key
 map("i", "<C-l>", function ()
   vim.fn.feedkeys(vim.fn['copilot#Accept'](), "")
