@@ -85,9 +85,12 @@ return {
       -- See Configuration section for options.
     },
   },
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   opts = function()
-  --   end
-  -- }
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      filters = {
+        git_ignored = false,
+      },
+    },
+  },
 }
